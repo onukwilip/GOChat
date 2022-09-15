@@ -1,9 +1,16 @@
 import React from "react";
 import css from "./Navbar.module.css";
 import dummy from "../../../assets/images/dummy-img.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.removeItem("GO_Media_UserId");
+    localStorage.removeItem("GO_Media_UserName");
+    navigate("/", { replace: true });
+  };
   return (
     <>
       <section className={css.navbar}>
@@ -49,7 +56,7 @@ const Navbar = () => {
             </div>
           </NavLink>
 
-          <div className={css["power-container"]}>
+          <div className={css["power-container"]} onClick={logOut}>
             <i className={`fa-solid fa-power-off ${css.power}`}></i>
           </div>
         </div>

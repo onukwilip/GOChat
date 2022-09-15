@@ -67,7 +67,7 @@ function App() {
   //VERIFY IF USER IS LOGGED IN
   const verifyUser = () => {
     //IF LOCALSTORAGE.USERID IS EMPTY
-    if (!userId || userId !== null || userId !== "") {
+    if (userId !== null && userId !== "") {
       //CALL API
       axios
         .get(url, config)
@@ -89,6 +89,7 @@ function App() {
             //NAVIGATE TO CHAT ENGINE
             navigate("/chat", { replace: true });
             //CALL THE isOnline FUNCTION
+            // alert("Not exist");
           }
         })
         //IF ERROR NAVIGATE TO LOGIN
