@@ -1,0 +1,121 @@
+@import "../../../../variables.scss";
+
+.my-chats {
+  padding: $padding;
+  @include flex(center, right, 0);
+
+  .main {
+    @include flex(center, right, 1rem);
+    flex-direction: row-reverse;
+  }
+
+  .img-container {
+    img {
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid beige;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  .text-body {
+    @include flex(flex-end, right, 0.2rem);
+    flex-direction: column;
+    // background-color: #fff;
+  }
+
+  .filter {
+    background-color: rgba($button-hover-default, 0.5);
+    border-radius: 5px;
+    max-width: 100%;
+    text-align: left;
+    overflow: hidden;
+    .replied-link {
+      color: inherit;
+    }
+    .replied-message {
+      padding: $padding;
+      border-radius: 5px;
+      border-left: 5px solid rgba($button-default, 1);
+      background-color: rgba($button-hover-default, 0.3);
+      em {
+        display: block;
+        font-style: normal;
+      }
+    }
+    .parent-author {
+      font-weight: bold;
+    }
+  }
+
+  .name {
+    line-height: 1px;
+    font-weight: bold;
+    text-align: right;
+    //color: rgba(black, 0.8);
+  }
+
+  .message {
+    color: rgba(black, 0.8);
+    //width: 50%;
+  }
+
+  .time {
+    font-size: 14px;
+    padding: 5px;
+    text-align: right;
+  }
+
+  .file-container {
+    @include flex(flex-end, flex-start, 10px);
+    flex-direction: column;
+    //max-width: 50%;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .file {
+    //max-width: 50%;
+    width: 300px;
+    overflow: hidden;
+    background-color: rgba($button-hover-default, 0.3);
+    border-radius: 5px;
+    text-align: left;
+    @include flex(center, flex-start, 1rem);
+    & * {
+      color: rgba(black, 0.8);
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .file-icon-container {
+    padding: $padding + 10px;
+    background-color: rgba(white, 0.3);
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    i {
+      scale: 1.5;
+      color: $button-default;
+    }
+  }
+
+  .file-details {
+    @include flex(flex-start, flex-start, 0);
+    flex-direction: column;
+  }
+
+  .file-name {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 19px;
+    color: $button-default;
+    filter: drop-shadow(0px 0px 1px rgba(white, 0.2));
+  }
+  .file-size {
+    font-style: normal;
+    font-size: 15px;
+  }
+}

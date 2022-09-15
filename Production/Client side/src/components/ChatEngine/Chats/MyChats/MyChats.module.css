@@ -1,0 +1,120 @@
+.my-chats {
+  padding: 10px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0;
+}
+.my-chats .main {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row-reverse;
+}
+.my-chats .img-container img {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid beige;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+.my-chats .text-body {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  gap: 0.2rem;
+  flex-direction: column;
+}
+.my-chats .filter {
+  background-color: rgba(13, 153, 235, 0.5);
+  border-radius: 5px;
+  max-width: 100%;
+  text-align: left;
+  overflow: hidden;
+}
+.my-chats .filter .replied-link {
+  color: inherit;
+}
+.my-chats .filter .replied-message {
+  padding: 10px;
+  border-radius: 5px;
+  border-left: 5px solid #0d99eb;
+  background-color: rgba(13, 153, 235, 0.3);
+}
+.my-chats .filter .replied-message em {
+  display: block;
+  font-style: normal;
+}
+.my-chats .filter .parent-author {
+  font-weight: bold;
+}
+.my-chats .name {
+  line-height: 1px;
+  font-weight: bold;
+  text-align: right;
+}
+.my-chats .message {
+  color: rgba(0, 0, 0, 0.8);
+}
+.my-chats .time {
+  font-size: 14px;
+  padding: 5px;
+  text-align: right;
+}
+.my-chats .file-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.my-chats .file {
+  width: 300px;
+  overflow: hidden;
+  background-color: rgba(13, 153, 235, 0.3);
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.my-chats .file * {
+  color: rgba(0, 0, 0, 0.8);
+}
+.my-chats .file a {
+  cursor: pointer;
+}
+.my-chats .file-icon-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+.my-chats .file-icon-container i {
+  scale: 1.5;
+  color: rgb(13, 153, 235);
+}
+.my-chats .file-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  flex-direction: column;
+}
+.my-chats .file-name {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  color: rgb(13, 153, 235);
+  filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.2));
+}
+.my-chats .file-size {
+  font-style: normal;
+  font-size: 15px;
+}/*# sourceMappingURL=MyChats.module.css.map */

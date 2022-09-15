@@ -1,0 +1,17 @@
+@import "../../variables.scss";
+
+.confirm {
+  @include flex(center, center, 1rem);
+  flex-direction: column;
+  > h1 {
+    font-size: 40px;
+  }
+  .email-address {
+    width: 50%;
+    text-align: center;
+  }
+  .action {
+    width: 100%;
+    @include flex(center, space-around, 0.7rem);
+  }
+}

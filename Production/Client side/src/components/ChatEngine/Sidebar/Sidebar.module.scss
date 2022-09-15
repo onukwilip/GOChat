@@ -1,0 +1,282 @@
+@import "../../../variables.scss";
+
+.sidebar-icon {
+  //border: $border;
+  .icon-group {
+    position: relative;
+    .icon-container {
+      position: absolute;
+      padding: $padding + 5px;
+      border-radius: 50%;
+      box-shadow: $box-shadow;
+      background: white;
+      right: 5px;
+      bottom: -1rem;
+      cursor: pointer;
+      &:hover {
+        animation: icon-hover 0.4s forwards;
+      }
+    }
+  }
+
+  .options {
+    padding: $padding + 20px 0;
+    ul {
+      list-style: none;
+      display: block;
+      margin: 0;
+      padding: 0;
+      @include flex(center, center, 3px);
+      a.active {
+        li {
+          background-color: rgba(0, 0, 0, 0.1);
+          color: $button-default;
+          border-radius: 100px;
+        }
+      }
+      li {
+        padding: 12px 16px;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.1);
+          color: $button-default;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes icon-hover {
+  to {
+    bottom: -10px;
+  }
+}
+
+.sidebar-map-components {
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  & > h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .all-components {
+    overflow-y: auto;
+    max-height: 62vh;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+    .large {
+      @include flex(center, flex-start, 1rem);
+    }
+    .medium {
+      display: none;
+    }
+  }
+}
+
+.sidebar-user {
+  @include flex(center, flex-start, 1rem);
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    animation: user-hover 0.2s forwards;
+  }
+  &:hover {
+    i {
+      color: $button-default;
+    }
+  }
+  .img-container {
+    position: relative;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: orange;
+      position: absolute;
+      bottom: 5px;
+      right: 0;
+      border: 2px solid beige;
+    }
+    .online {
+      background-color: $button-default;
+    }
+    .offline {
+      background-color: lightgray;
+    }
+  }
+  .details {
+    width: 100%;
+  }
+  .name {
+    font-weight: bold;
+  }
+  .about {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .user-icon {
+    width: 10%;
+    i {
+      transform: scale(1.3);
+    }
+  }
+}
+
+.sidebar-discussion {
+  @include flex(center, flex-start, 1rem);
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    animation: user-hover 0.2s forwards;
+  }
+  &:hover {
+    i {
+      color: $button-default;
+    }
+  }
+  .img-container {
+    position: relative;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: orange;
+      position: absolute;
+      bottom: 5px;
+      right: 0;
+      border: 2px solid beige;
+    }
+    .online {
+      background-color: $button-default;
+    }
+    .offline {
+      background-color: lightgray;
+    }
+  }
+  .details {
+    width: 100%;
+  }
+  .name {
+    font-weight: bold;
+  }
+  .about {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .user-icon {
+    width: 10%;
+    i {
+      transform: scale(1.3);
+    }
+  }
+  .message-count {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $button-default;
+    border: 5px solid beige;
+    padding: 20px;
+    color: white;
+    @include flex(center, center, 0);
+  }
+}
+
+.sidebar-notification {
+  @include flex(center, flex-start, 1rem);
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    animation: user-hover 0.2s forwards;
+  }
+  &:hover {
+    i {
+      color: $button-default;
+    }
+  }
+  .img-container {
+    position: relative;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: orange;
+      position: absolute;
+      bottom: 5px;
+      right: 0;
+      border: 2px solid beige;
+    }
+    .online {
+      background-color: $button-default;
+    }
+    .offline {
+      background-color: lightgray;
+    }
+  }
+  .details {
+    width: 100%;
+  }
+  .name {
+    font-weight: bold;
+  }
+  .about {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .user-icon {
+    width: 10%;
+    i {
+      transform: scale(1.3);
+    }
+  }
+}
+
+@keyframes user-hover {
+  from {
+  }
+  to {
+    opacity: 1;
+    border-bottom: 2px solid $button-default;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .sidebar-map-components {
+    .all-components {
+      .large {
+        display: none;
+      }
+      .medium {
+        @include flex(center, flex-start, 1rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.contacts {
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 30px;
+  height: 100vh;
+}
+.contacts .search {
+  width: 100%;
+}
+.contacts .users {
+  overflow-y: auto;
+  max-height: 69.5vh;
+  width: 100%;
+}/*# sourceMappingURL=Contacts.module.css.map */

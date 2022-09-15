@@ -1,0 +1,40 @@
+@import "../../variables.scss";
+
+.form-container {
+  .form {
+    @include flex(center, center, 0.7rem);
+    width: 100%;
+    flex-direction: column;
+    .form-group {
+      @include flex(stretch, flex-start, 0px);
+      min-width: auto;
+      height: 50px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      &:hover {
+        border: 2px solid rgb(3, 46, 236, 0.5);
+      }
+      .form-icon {
+        @include flex(center, center, 0px);
+        padding: 1rem;
+        i {
+          quotes: 40px;
+          transform: scale(1.5);
+        }
+      }
+      .form-tag {
+        @include flex(stretch, center, 0px);
+        width: 100%;
+        input {
+          outline: 0;
+          border: 0;
+          background-color: transparent;
+          padding: 10px 0;
+          font-size: 16px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

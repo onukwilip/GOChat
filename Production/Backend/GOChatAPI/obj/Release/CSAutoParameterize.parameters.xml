@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GOChat-Web.config Connection String" description="GOChat Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:goit.database.windows.net,1433;Initial Catalog=GOChat;Persist Security Info=False;User ID=princeOnukwili;Password=agoziemPa55w0rd2006*#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\c\#\ practice\\ASP\.NET\ Web\ API's\\GOChatAPI\\GOChatAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GOChat']/@connectionString" />
+  </parameter>
+</parameters>
