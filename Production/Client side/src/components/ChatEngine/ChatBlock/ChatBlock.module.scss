@@ -22,6 +22,11 @@
   .body {
     z-index: 10;
     position: relative;
+    //New
+    @include flex(center, space-between, 0);
+    flex-direction: column;
+    height: 100%;
+
     .header {
       width: 100%;
       position: relative;
@@ -70,16 +75,18 @@
         color: rgba(0, 0, 0, 0.5);
       }
     }
+
     .platform {
-      height: 500px;
+      height: 70%;
       overflow-y: auto;
-      padding: $padding + 20px;
+      padding: $padding;
       color: rgba(0, 0, 0, 0.8);
     }
     .form {
       overflow-y: auto;
       padding: $padding + 10px;
       background-color: white;
+      width: 100%;
       .form-parent {
         @include flex(center, center, 1rem);
         flex-direction: row;
@@ -153,8 +160,8 @@
       height: 100%;
       overflow-y: auto;
       .platform {
-        height: 73.5%;
-        padding: 10px;
+        height: 80%;
+        // padding: 10px;
       }
       .form {
         padding: $padding;
@@ -185,7 +192,7 @@
   .chat {
     .body {
       .platform {
-        height: 80.8%;
+        // height: 80.8%;
       }
     }
   }
@@ -199,10 +206,10 @@
       height: 100%;
       overflow-y: auto;
       .platform {
-        height: 76%;
-        //max-height: 440px;
-        overflow: auto;
-        padding: 10px;
+        // height: 76%;
+        // //max-height: 440px;
+        // overflow: auto;
+        // padding: 10px;
       }
       .form {
         // height: 10%;
@@ -215,7 +222,7 @@
   .chat {
     .body {
       .platform {
-        height: 73.3%;
+        // height: 73.3%;
       }
     }
   }

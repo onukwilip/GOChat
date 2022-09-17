@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./ChatEngine.module.css";
 import ChatBlock from "../../components/ChatEngine/ChatBlock/ChatBlock";
 import Navbar from "../../components/ChatEngine/Navbar/Navbar";
@@ -6,10 +6,26 @@ import { Routes, Route } from "react-router-dom";
 import Contacts from "../../components/ChatEngine/Contacts/Contacts";
 import Messages from "../../components/ChatEngine/Messages/Messages";
 import Notifications from "../../components/ChatEngine/Notifications/Notifications";
+import Glassmorphism from "../../components/Glassmorphism/Glassmorphism";
 
 const ChatEngine = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <>
+      <div
+        className={css.hamburger}
+        onClick={() => {
+          setMobileMenu((prev) => !prev);
+        }}
+      >
+        <i className={!mobileMenu ? "fas fa-bars" : "fas fa-times"}></i>
+      </div>
+      {mobileMenu && (
+        <Glassmorphism className={css["mobile-menu"]}>
+          <Navbar />
+        </Glassmorphism>
+      )}
+
       <section className={css["chat-engine"]}>
         <div className={css.navbar}>
           <Navbar />

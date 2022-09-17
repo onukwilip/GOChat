@@ -2,6 +2,30 @@
   display: none;
 }
 
+.hamburger {
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  right: 0.5rem;
+  top: 7rem;
+  z-index: 15;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: 15;
+  height: 97%;
+  overflow-y: auto;
+  margin: 10px;
+  display: none;
+  -webkit-animation: mobile-menu 0.5s forwards;
+          animation: mobile-menu 0.5s forwards;
+}
+
 .chat-engine {
   display: flex;
   justify-content: flex-start;
@@ -59,6 +83,23 @@
   display: none;
 }
 
+@-webkit-keyframes mobile-menu {
+  from {
+    left: -1000px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes mobile-menu {
+  from {
+    left: -1000px;
+  }
+  to {
+    left: 0;
+  }
+}
 @media (max-width: 850px) {
   .chat-engine .body-container {
     display: none;
@@ -71,8 +112,17 @@
   }
 }
 @media (max-width: 550px) {
+  .hamburger {
+    display: block;
+  }
+  .mobile-menu {
+    display: block;
+  }
   .chat-engine {
     flex-direction: column-reverse;
     height: 100vh;
+  }
+  .chat-engine .navbar {
+    display: none;
   }
 }/*# sourceMappingURL=ChatEngine.module.css.map */
