@@ -13,7 +13,19 @@
   }
   .users {
     overflow-y: auto;
-    max-height: 69.5vh;
+    // max-height: 69.5vh;
+    height: 69.5vh;
     width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .contacts {
+    height: 100%;
+    //overflow: hidden;
+    .users {
+      height: 100%;
+      //overflow: hidden;
+    }
   }
 }

@@ -8,7 +8,6 @@
   align-items: stretch;
   gap: 0;
   flex-direction: row;
-  min-height: 100vh;
   height: 100vh;
   overflow-y: auto;
   background-color: beige;
@@ -26,7 +25,7 @@
   width: 100%;
   flex: 0.95;
   overflow-y: auto;
-  height: 100%;
+  min-height: 100%;
 }
 .chat-engine .body {
   display: flex;
@@ -68,10 +67,12 @@
     display: block;
     width: 100%;
     background-color: #fff;
+    height: 100%;
   }
 }
 @media (max-width: 550px) {
   .chat-engine {
     flex-direction: column-reverse;
+    height: 100vh;
   }
 }/*# sourceMappingURL=ChatEngine.module.css.map */

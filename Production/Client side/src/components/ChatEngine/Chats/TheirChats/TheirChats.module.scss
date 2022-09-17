@@ -32,6 +32,10 @@
     width: 100%;
     text-align: left;
     overflow: hidden;
+    .toogle {
+      cursor: pointer;
+      color: $button-default;
+    }
     .replied-link {
       color: inherit;
     }
@@ -120,5 +124,19 @@
   .file-size {
     font-style: normal;
     font-size: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .their-chats {
+    padding: 0;
+    .img-container {
+      display: none;
+    }
+    .file-container {
+      .file {
+        width: 100%;
+      }
+    }
   }
 }

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./MyChats.module.css";
 import image from "../../../../assets/images/dummy-img.png";
 import Glassmorphism from "../../../Glassmorphism/Glassmorphism";
 
+const SeeMore = <p>See more</p>;
+
 const MyChats = ({ chat }) => {
+  const [showAllMessage, setShowAllMessage] = useState(false);
+
   return (
     <div className={css["my-chats"]}>
       <div className={css.main}>
@@ -57,7 +61,38 @@ const MyChats = ({ chat }) => {
                 </a>
               ) : null}
 
-              <div className={css.message}>{chat?.message}</div>
+              <div className={css.message}>
+                {/* {chat?.message} */}
+                {chat?.message.length > 100 && !showAllMessage ? (
+                  <>
+                    {chat?.message.substring(0, 100)}
+                    <a
+                      onClick={() => {
+                        setShowAllMessage((prev) => !prev);
+                      }}
+                      className={css.toogle}
+                    >
+                      ...See more
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    {chat?.message}
+                    {chat?.message.length > 100 && showAllMessage ? (
+                      <>
+                        <a
+                          onClick={() => {
+                            setShowAllMessage((prev) => !prev);
+                          }}
+                          className={css.toogle}
+                        >
+                          &nbsp; See less
+                        </a>
+                      </>
+                    ) : null}
+                  </>
+                )}
+              </div>
             </Glassmorphism>
           </div>
 

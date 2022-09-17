@@ -101,7 +101,7 @@ const Login = () => {
             <img src={twitter} alt="" />
           </div>
           <p className={css.optional}>or use your email account</p>
-          <div style={{ width: "400px" }}>
+          <div className={css.container}>
             <Form onSubmit={onSubmit}>
               <FormGroup
                 icon="fa fa-envelope"

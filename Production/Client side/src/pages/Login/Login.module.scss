@@ -2,7 +2,7 @@
 
 .Login {
   @include flex(stretch, center, 0rem);
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   a {
     color: $link;
@@ -41,6 +41,9 @@
     .signUp {
       display: none;
     }
+    .container {
+      width: 400px;
+    }
   }
   .right-side {
     width: 100%;
@@ -76,6 +79,19 @@
     }
     .right-side {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .Login {
+    .left-side {
+      overflow: hidden;
+      width: 100%;
+      padding: 0 $padding;
+      .container {
+        width: 100%;
+      }
     }
   }
 }

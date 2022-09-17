@@ -71,7 +71,8 @@
   }
   .all-components {
     overflow-y: auto;
-    max-height: 62vh;
+    // max-height: 62vh;
+    height: 62vh;
     // &::-webkit-scrollbar {
     //   display: none;
     // }
@@ -277,6 +278,17 @@
       .medium {
         @include flex(center, flex-start, 1rem);
       }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .sidebar-map-components {
+    height: 100%;
+    .all-components {
+      min-height: 100%;
+      height: auto;
+      // overflow: hidden;
     }
   }
 }

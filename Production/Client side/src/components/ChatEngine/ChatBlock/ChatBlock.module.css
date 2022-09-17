@@ -97,6 +97,9 @@
   flex-direction: row;
   width: 100%;
 }
+.chat .body .form .form-parent button {
+  background: inherit;
+}
 .chat .body .form .form-parent .l-side {
   width: 80%;
 }
@@ -146,7 +149,63 @@
 .chat .no-chat h1 {
   font-size: 40px;
   font-weight: bold;
+  text-align: center;
 }
 .chat .no-chat p {
   font-size: 18px;
+  text-align: center;
+}
+
+@media (max-width: 550px) {
+  .chat {
+    height: 100%;
+  }
+  .chat .body {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .chat .body .platform {
+    height: 73.5%;
+    padding: 10px;
+  }
+  .chat .body .form {
+    padding: 10px;
+  }
+  .chat .body .form .form-parent .l-side {
+    width: 60%;
+  }
+  .chat .body .form .form-parent .middle {
+    width: 5%;
+    text-align: center;
+  }
+  .chat .body .form .form-parent .middle i {
+    transform: scale(1);
+  }
+  .chat .body .form .form-parent .r-side {
+    padding-left: 5px;
+  }
+  .chat .body .form .form-parent .r-side i {
+    transform: scale(1);
+  }
+}
+@media (max-width: 420px) {
+  .chat .body .platform {
+    height: 80.8%;
+  }
+}
+@media (max-width: 360px) {
+  .chat .body {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .chat .body .platform {
+    height: 76%;
+    overflow: auto;
+    padding: 10px;
+  }
+}
+@media (max-width: 340px) {
+  .chat .body .platform {
+    height: 73.3%;
+  }
 }/*# sourceMappingURL=ChatBlock.module.css.map */

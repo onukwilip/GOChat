@@ -15,3 +15,12 @@
     @include flex(center, space-around, 0.7rem);
   }
 }
+
+@media (max-width: 550px) {
+  .confirm {
+    padding: $padding;
+    .email-address {
+      width: 100%;
+    }
+  }
+}

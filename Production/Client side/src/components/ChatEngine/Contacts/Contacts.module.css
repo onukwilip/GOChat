@@ -15,6 +15,15 @@
 }
 .contacts .users {
   overflow-y: auto;
-  max-height: 69.5vh;
+  height: 69.5vh;
   width: 100%;
+}
+
+@media (max-width: 550px) {
+  .contacts {
+    height: 100%;
+  }
+  .contacts .users {
+    height: 100%;
+  }
 }/*# sourceMappingURL=Contacts.module.css.map */

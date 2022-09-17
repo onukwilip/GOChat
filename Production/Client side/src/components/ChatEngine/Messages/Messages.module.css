@@ -15,6 +15,15 @@
 }
 .messages .users {
   overflow-y: auto;
-  max-height: 69.5vh;
+  height: 69.5vh;
   width: 100%;
+}
+
+@media (max-width: 550px) {
+  .messages {
+    height: 100%;
+  }
+  .messages .users {
+    height: 100%;
+  }
 }/*# sourceMappingURL=Messages.module.css.map */

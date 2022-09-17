@@ -90,3 +90,11 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .Login {
+    .left-side {
+      padding: 0 $padding;
+    }
+  }
+}

@@ -18,4 +18,13 @@
   justify-content: space-around;
   align-items: center;
   gap: 0.7rem;
+}
+
+@media (max-width: 550px) {
+  .confirm {
+    padding: 10px;
+  }
+  .confirm .email-address {
+    width: 100%;
+  }
 }/*# sourceMappingURL=ConfirmOTP.module.css.map */

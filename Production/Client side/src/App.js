@@ -106,7 +106,7 @@ function App() {
   };
 
   useEffect(() => {
-    verifyUser();
+    // verifyUser();
     isOnline();
     return () => {
       isOffline();

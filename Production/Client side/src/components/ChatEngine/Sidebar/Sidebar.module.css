@@ -71,7 +71,7 @@
 }
 .sidebar-map-components .all-components {
   overflow-y: auto;
-  max-height: 62vh;
+  height: 62vh;
 }
 .sidebar-map-components .all-components .large {
   display: flex;
@@ -292,5 +292,14 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
+  }
+}
+@media (max-width: 550px) {
+  .sidebar-map-components {
+    height: 100%;
+  }
+  .sidebar-map-components .all-components {
+    min-height: 100%;
+    height: auto;
   }
 }/*# sourceMappingURL=Sidebar.module.css.map */

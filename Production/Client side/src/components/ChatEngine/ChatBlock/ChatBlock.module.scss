@@ -84,6 +84,9 @@
         @include flex(center, center, 1rem);
         flex-direction: row;
         width: 100%;
+        button {
+          background: inherit;
+        }
         .l-side {
           width: 80%;
         }
@@ -132,9 +135,88 @@
     h1 {
       font-size: 40px;
       font-weight: bold;
+      text-align: center;
     }
     p {
       font-size: 18px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .chat {
+    height: 100%;
+    .bg {
+    }
+    .body {
+      height: 100%;
+      overflow-y: auto;
+      .platform {
+        height: 73.5%;
+        padding: 10px;
+      }
+      .form {
+        padding: $padding;
+        .form-parent {
+          .l-side {
+            width: 60%;
+          }
+          .middle {
+            width: 5%;
+            text-align: center;
+            i {
+              transform: scale(1);
+            }
+          }
+          .r-side {
+            padding-left: 5px;
+            i {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .chat {
+    .body {
+      .platform {
+        height: 80.8%;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .chat {
+    .bg {
+    }
+    .body {
+      height: 100%;
+      overflow-y: auto;
+      .platform {
+        height: 76%;
+        //max-height: 440px;
+        overflow: auto;
+        padding: 10px;
+      }
+      .form {
+        // height: 10%;
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .chat {
+    .body {
+      .platform {
+        height: 73.3%;
+      }
     }
   }
 }

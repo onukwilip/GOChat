@@ -105,4 +105,9 @@
   .Login .right-side {
     display: none;
   }
+}
+@media (max-width: 500px) {
+  .Login .left-side {
+    padding: 0 10px;
+  }
 }/*# sourceMappingURL=Register.module.css.map */
