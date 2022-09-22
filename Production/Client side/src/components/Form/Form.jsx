@@ -17,6 +17,21 @@ export const Form = (props) => {
 };
 
 export const FormGroup = (props) => {
+  if (props.type === "textarea") {
+    return (
+      <div className={css.textarea}>
+        <textarea
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          required={props.required}
+          disabled={props.disabled}
+        >
+          {props.children}
+        </textarea>
+      </div>
+    );
+  }
+
   return (
     <label className={css["form-group"]}>
       <div className={css["form-icon"]}>
@@ -34,10 +49,9 @@ export const FormGroup = (props) => {
           name={props.name}
           placeholder={props.placeholder}
           value={props.value}
-          onChange={(e) => {
-            props.onChange(e.target.value);
-          }}
+          onChange={props.onChange}
           required={props.required}
+          disabled={props.disabled}
         />
       </div>
     </label>

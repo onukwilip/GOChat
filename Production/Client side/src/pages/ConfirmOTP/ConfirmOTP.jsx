@@ -11,18 +11,15 @@ const ConfirmOTP = () => {
   const [OTP, setOTP] = useState("");
   const [otpTimeOut, setOtpTimeOut] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [email, setEmail] = useState(general.emailToSendOTP);
+  const [email, setEmail] = useState("");
   const [invalidOTP, setInvalidOTP] = useState(false);
+  const [OTPDetails, setOTPDetails] = useState(
+    JSON.parse(sessionStorage.getItem("OTP"))
+  );
   const apiPrefix = general.domain;
   const url = apiPrefix + `api/user/`;
   const config = general.config;
   const navigate = useNavigate();
-  const OTPConfirmType = JSON.parse(localStorage.getItem("OTPConfirmType"));
-  const emailToSendOTP = JSON.parse(localStorage.getItem("emailToSendOTP"));
-  const [resent, setResent] = useState({
-    bool: false,
-    message: `OTP has been resent to ${emailToSendOTP}`,
-  });
 
   const isOnline = (userId) => {
     const url = apiPrefix + `api/user/isOnline`;
@@ -43,7 +40,7 @@ const ConfirmOTP = () => {
   const getUserByEmail = () => {
     const _url = url + `getUserByEmail`;
     const body = {
-      Email: emailToSendOTP,
+      Email: OTPDetails?.email,
     };
 
     axios
@@ -53,8 +50,7 @@ const ConfirmOTP = () => {
 
         user.map((each) => {
           isOnline(each.UserID);
-          localStorage.setItem("GO_Media_UserId", each.UserID);
-          localStorage.setItem("GO_Media_UserName", each.UserName);
+          localStorage.setItem("UserId", each.UserID);
         });
       })
       .catch((e) => {});
@@ -63,7 +59,7 @@ const ConfirmOTP = () => {
   const clear = () => {
     const _url = url + `eraseOTP`;
     const body = {
-      Email: emailToSendOTP,
+      Email: OTPDetails?.email,
     };
 
     axios
@@ -79,7 +75,7 @@ const ConfirmOTP = () => {
   const validateOTP = () => {
     const _url = url + `confirmOTP`;
     const body = {
-      Email: emailToSendOTP,
+      Email: OTPDetails?.email,
       OTP: OTP,
     };
 
@@ -88,14 +84,18 @@ const ConfirmOTP = () => {
       .then((res) => {
         if (res.data) {
           setInvalidOTP(false);
-
           clear();
           getUserByEmail();
-
-          localStorage.removeItem("OTPConfirmType");
-          localStorage.removeItem("emailToSendOTP");
-
-          navigate("/chat", { replace: true });
+          //IF THE OTP TYPE IS EQUAL TO 'LOGIN'
+          if (OTPDetails.type === "login") {
+            //Get user IP address and log it into the database
+            getUserIPAddress(OTPDetails?.email);
+            sessionStorage.removeItem("OTP");
+            navigate("/chat", { replace: true });
+          }
+          //IF IT'S EQUAL TO PASSWORD
+          else {
+          }
         } else {
           setInvalidOTP(true);
         }
@@ -106,30 +106,19 @@ const ConfirmOTP = () => {
       });
   };
 
-  const clearOTP = () => {
+  const sendOTP = () => {
     setDisabled(true);
 
-    const timeOut = setTimeout(() => {
-      clear();
-      setDisabled(false);
-      // setResent((prev) => ({
-      //   bool: false,
-      //   ...prev,
-      // }));
-    }, 180000);
-    setOtpTimeOut(timeOut);
-  };
-
-  const onReload = () => {
     const _url = url + `updateOTP`;
     const body = {
-      Email: emailToSendOTP === null ? email : emailToSendOTP,
+      Email: OTPDetails?.email === null ? email : OTPDetails?.email,
     };
 
     axios
       .put(_url, body, config)
       .then((res) => {
         if (res.data) {
+          //IF OTP WAS SUCCESSFULLY SENT DISABLE RESEND AND SET TIMEOUT
           console.log("OTP sent successfully...");
           console.log("Send OTP", res.data);
         } else {
@@ -140,45 +129,81 @@ const ConfirmOTP = () => {
         console.log(e);
       });
 
-    if (OTPConfirmType === "Registeration") {
-      if (emailToSendOTP === "" || emailToSendOTP === null) {
+    if (OTPDetails?.type === "login") {
+      if (OTPDetails?.email === "" || OTPDetails?.email === null) {
         navigate("/login", { replace: true });
       }
     } else {
     }
+
+    setTimeout(() => {
+      timeOut();
+    }, 30000);
   };
 
-  const resendOTP = () => {
-    const _url = url + `updateOTP`;
+  const timeOut = () => {
+    setDisabled(false);
+  };
+
+  const logUserIPAddress = (userID, body) => {
+    const _url = url + `IPAddress`;
+    const _body = {
+      ...body,
+      City: body.city === null ? "" : body.city,
+      State: body.state === null ? "" : body.state,
+      Latitude: body.latitude === null ? 0 : body.latitude,
+      Longitude: body.longitude === null ? 0 : body.longitude,
+      UserID: userID,
+    };
+    axios
+      .post(_url, _body, config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch();
+    console.log(body);
+  };
+
+  const getUserID = (_body) => {
+    const _url = url + `getUserByEmail`;
     const body = {
-      Email: emailToSendOTP === null ? email : emailToSendOTP,
+      Email: OTPDetails?.email,
     };
 
     axios
-      .put(_url, body, config)
+      .post(_url, body, config)
       .then((res) => {
-        if (res.data) {
-          console.log("Resent...", res.data);
-          setResent((prev) => ({
-            bool: true,
-            ...prev,
-          }));
-        } else {
-          console.log("An error occurred...");
-        }
+        const user = res.data;
+        user.map((each) => {
+          logUserIPAddress(each.UserID, _body);
+        });
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
+  };
 
-    clearOTP();
+  const getUserIPAddress = (email) => {
+    const ipUrl = "https://geolocation-db.com/json/";
+    axios
+      .get(ipUrl)
+      .then((res) => {
+        //Call my API to log user IP address
+        getUserID(res.data);
+      })
+      .catch((e) => {});
+  };
+
+  const reDirect = () => {
+    if (OTPDetails === null || OTPDetails === "") {
+      navigate("/login", { replace: true });
+    }
   };
 
   useEffect(() => {
-    onReload();
-    clearOTP();
+    reDirect();
+    sendOTP();
     return () => {
-      clearTimeout(otpTimeOut);
+      // clearTimeout(otpTimeOut);
+      clear();
     };
   }, []);
 
@@ -186,7 +211,7 @@ const ConfirmOTP = () => {
     <>
       <section className={css.confirm}>
         <h1>Confirm your email</h1>
-        {OTPConfirmType === "Password" && (
+        {OTPDetails?.type === "password" && (
           <div className={css["email-address"]}>
             <p>
               Please enter your email address that the OTP will be sent to...
@@ -196,31 +221,44 @@ const ConfirmOTP = () => {
               <FormGroup
                 icon="fas fa-envelope"
                 placeholder="Enter email address..."
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <Button>Send OTP</Button>
             </Form>
           </div>
         )}
         <div className={css["email-address"]}>
-          <p>Please enter the OTP sent to {emailToSendOTP}</p>
+          <p>
+            Please enter the OTP sent to{" "}
+            {OTPDetails?.email === "" || OTPDetails?.email === null
+              ? email
+              : OTPDetails?.email}
+          </p>
           <Form onSubmit={validateOTP}>
             <FormGroup
               icon="fas fa-key"
               placeholder="Enter OTP..."
-              onChange={setOTP}
+              onChange={(e) => {
+                setOTP(e.target.value);
+              }}
               value={OTP}
             />
             {invalidOTP && <p className="error">Invalid OTP...</p>}
             <div className={css["action"]}>
               <Button>Confirm OTP</Button>
-              <Button type="button" disabled={disabled} onClick={resendOTP}>
-                Resend
-              </Button>
+              {!disabled && (
+                <Button type="button" disabled={disabled} onClick={sendOTP}>
+                  Resend
+                </Button>
+              )}
             </div>
-            {!disabled && <p>OTP has been cleared click to resend...</p>}
-            {resent.bool && (
-              <p>OTP has been successfully resent to {emailToSendOTP}...</p>
-            )}
+            <p>
+              Didn't recieve any mail? You will be able to resend after 30
+              seconds...
+            </p>
           </Form>
         </div>
       </section>

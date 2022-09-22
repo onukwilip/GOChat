@@ -8,7 +8,7 @@ import TheirChats from "../Chats/TheirChats/TheirChats";
 import { General } from "../../../context/GeneralContext";
 import { Chats } from "../../../dummyData";
 
-const ChatBlock = () => {
+const ChatBlock = (props) => {
   const general = useContext(General);
 
   const [chatRoomProfile, setChatRoomProfile] = useState({
@@ -41,6 +41,8 @@ const ChatBlock = () => {
 
   useEffect(() => {
     setChatRoomProfile({ ...JSON.parse(sessionStorage.getItem("chatRoom")) });
+    console.log(`User name ${props.userName}`, `Image ${props.image}`);
+    console.log("chat room profile", chatRoomProfile);
     getAllChats();
   }, [general.refreshState]);
   const date = new Date(chatRoomProfile.lastSeen);
@@ -52,21 +54,59 @@ const ChatBlock = () => {
         <div className={css.header}>
           <div>
             <div className={css["img-container"]}>
-              <img src={chatRoomProfile?.chatRoomPicture} alt="" />
+              <img
+                src={
+                  // chatRoomProfile?.chatRoomPicture
+                  //   ? chatRoomProfile?.chatRoomPicture
+                  //   : props.image
+
+                  Object.keys(chatRoomProfile).length > 0 &&
+                  chatRoomProfile?.chatRoomPicture
+                    ? chatRoomProfile?.chatRoomPicture
+                    : Object.keys(chatRoomProfile).length < 1 &&
+                      props.image != null
+                    ? props.image
+                    : dummy
+                }
+                alt=""
+              />
               <div
                 className={`${css.status} ${
-                  chatRoomProfile?.isOnline ? css.online : css.offline
+                  // chatRoomProfile?.isOnline ? css.online : css.offline
+                  Object.keys(chatRoomProfile).length > 0 &&
+                  chatRoomProfile.isOnline
+                    ? css.online
+                    : Object.keys(chatRoomProfile).length > 0 &&
+                      !chatRoomProfile.isOnline
+                    ? css.offline
+                    : css.isOnline
                 }`}
               ></div>
             </div>
             <div className={css["details"]}>
-              <p className={css["name"]}>{chatRoomProfile.chatRoomName}</p>
+              <p className={css["name"]}>
+                {chatRoomProfile.chatRoomName
+                  ? chatRoomProfile.chatRoomName
+                  : props.userName}
+              </p>
               <p className={css.status}>
-                {chatRoomProfile.isOnline
+                {
+                  /* {chatRoomProfile.isOnline
                   ? "Online"
                   : `Last seen ${date.getFullYear()}/${
                       date.getMonth() + 1
-                    }/${date.getDate()}`}
+                    }/${date.getDate()}`} */
+
+                  Object.keys(chatRoomProfile).length > 0 &&
+                  chatRoomProfile?.isOnline
+                    ? "Online"
+                    : Object.keys(chatRoomProfile).length > 0 &&
+                      !chatRoomProfile?.isOnline
+                    ? `Last seen ${date.getFullYear()}/${
+                        date.getMonth() + 1
+                      }/${date.getDate()}`
+                    : "Online"
+                }
               </p>
             </div>
           </div>

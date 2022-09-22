@@ -12,6 +12,18 @@ using MailKit.Security;
 
 namespace GOChatAPI
 {
+   public enum ResponseCodes
+    {
+        //Success or Failure
+        Successfull=200,
+        Unsuccessfull = 400,
+        NoUser=401,
+        NoChatRoom=402,
+        NoRequests=403,
+        //Mail
+        MailNotSent = 100,
+    }
+
     public class General
     {
         public int Random()
@@ -40,10 +52,11 @@ namespace GOChatAPI
                     // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
                     client.ServerCertificateValidationCallback = (s, c, h, t) => true;
 
-                    client.Connect("smtp.gmail.com", 587, false);
+                    //client.Connect("smtp.gmail.com", 587, false);
+                    client.Connect("smtp.gmail.com", 465, true);
 
                     // Note: only needed if the SMTP server requires authentication
-                    client.Authenticate("onukwilip@gmail.com", "dkkovskrighnsrse");
+                    client.Authenticate("onukwilip@gmail.com", "xgtswucwcflackth");
 
                     client.Send(message);
                     client.Disconnect(true);
@@ -80,7 +93,7 @@ namespace GOChatAPI
                     // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
                     client.ServerCertificateValidationCallback = (s, c, h, t) => true;
 
-                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Connect("smtp.gmail.com", 25, false);
 
                     // Note: only needed if the SMTP server requires authentication
                     client.Authenticate("onukwilip@gmail.com", "vradvsdyewmjpjal");//vradvsdyewmjpjal

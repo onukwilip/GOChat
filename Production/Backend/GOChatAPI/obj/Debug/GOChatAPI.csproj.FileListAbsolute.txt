@@ -105,3 +105,4 @@ C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\System.Memory.xml
 C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\System.Numerics.Vectors.xml
 C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\System.Threading.Tasks.Extensions.xml
+C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\XmlDocument.xml

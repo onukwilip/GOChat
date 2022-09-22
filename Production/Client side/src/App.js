@@ -9,7 +9,7 @@ import Register from "./pages/Register/Register";
 import ConfirmOTP from "./pages/ConfirmOTP/ConfirmOTP";
 
 function App() {
-  const userId = localStorage.getItem("GO_Media_UserId");
+  const userId = localStorage.getItem("UserId");
   const navigate = useNavigate();
   const general = useContext(General);
   const apiPrefix = general.domain;
@@ -65,12 +65,12 @@ function App() {
   };
 
   //VERIFY IF USER IS LOGGED IN
-  const verifyUser = () => {
+  const verifyUser = (ipAddress) => {
     //IF LOCALSTORAGE.USERID IS EMPTY
     if (userId !== null && userId !== "") {
       //CALL API
       axios
-        .get(url, config)
+        .get(`${url}/${general.toBase64(ipAddress)}`, config)
         .then((res) => {
           const user = res.data;
           //IF USER DOESN'T EXIST
@@ -84,8 +84,8 @@ function App() {
           }
           //ELSE
           else {
-            localStorage.setItem("GO_Media_UserId", user.UserID);
-            localStorage.setItem("GO_Media_UserName", user.UserName);
+            localStorage.setItem("UserId", user.UserID);
+            console.log(user);
             //NAVIGATE TO CHAT ENGINE
             navigate("/chat", { replace: true });
             //CALL THE isOnline FUNCTION
@@ -105,8 +105,20 @@ function App() {
     }
   };
 
+  //GET IP ADDRESS OF USER
+  const getUserIPAddress = (email) => {
+    const ipUrl = "https://geolocation-db.com/json/";
+    axios
+      .get(ipUrl)
+      .then((res) => {
+        //Call my API to log user IP address
+        verifyUser(res.data.IPv4);
+      })
+      .catch((e) => {});
+  };
+
   useEffect(() => {
-    // verifyUser();
+    getUserIPAddress();
     isOnline();
     return () => {
       isOffline();

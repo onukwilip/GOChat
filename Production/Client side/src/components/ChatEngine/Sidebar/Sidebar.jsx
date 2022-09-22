@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import css from "./Sidebar.module.css";
 import { Form, FormGroup } from "../../Form/Form";
 import { General } from "../../../context/GeneralContext";
+import dummy from "../../../assets/images/dummy-img.png";
+import NoItem from "../../NoItem/NoItem";
 
 export const SidebarSearch = (props) => {
   const allClickHandler = () => {
@@ -28,28 +30,33 @@ export const SidebarSearch = (props) => {
             </div>
           </Form>
         </div>
-        <div className={css.options}>
-          <ul>
-            <NavLink
-              className={({ isActive }) => (isActive ? css.active : "")}
-              to={props.onAllLink}
-            >
-              <li onClick={allClickHandler}>{props.all}</li>
-            </NavLink>
-            <NavLink
-              to={props.onActiveLink}
-              className={({ isActive }) => (isActive ? css.active : "")}
-            >
-              <li onClick={activeClickHandler}>{props.active}</li>
-            </NavLink>
-            <NavLink
-              to={props.onInActiveLink}
-              className={({ isActive }) => (isActive ? css.active : "")}
-            >
-              <li onClick={inActiveClickHandler}>{props.inActive}</li>
-            </NavLink>
-          </ul>
-        </div>
+        {props.showOptions && (
+          <div className={css.options}>
+            <ul>
+              {!props.all ? null : (
+                <NavLink
+                  className={({ isActive }) => (isActive ? css.active : "")}
+                  to={props.onAllLink}
+                >
+                  <li onClick={allClickHandler}>{props.all}</li>
+                </NavLink>
+              )}
+
+              <NavLink
+                to={props.onActiveLink}
+                className={({ isActive }) => (isActive ? css.active : "")}
+              >
+                <li onClick={activeClickHandler}>{props.active}</li>
+              </NavLink>
+              <NavLink
+                to={props.onInActiveLink}
+                className={({ isActive }) => (isActive ? css.active : "")}
+              >
+                <li onClick={inActiveClickHandler}>{props.inActive}</li>
+              </NavLink>
+            </ul>
+          </div>
+        )}
       </section>
     </>
   );
@@ -146,6 +153,91 @@ export const NotificationMapComponents = (props) => {
             </>
           );
         })}
+      </div>
+    </section>
+  );
+};
+
+export const UserMapComponents = (props) => {
+  const allItems = [...props.profiles];
+  return (
+    <section className={css["sidebar-map-components"]}>
+      <h1>{props.title}</h1>
+      <br />
+      <div className={css["all-user-components"]}>
+        {allItems.length > 0 ? (
+          allItems.map((eachItem, i) => {
+            if (eachItem.Type === "group") {
+              return (
+                <>
+                  <GroupProfile
+                    items={eachItem}
+                    className={css.large}
+                    addUserIcon={props.addUserIcon}
+                  />
+                  <GroupProfile
+                    items={eachItem}
+                    className={css.medium}
+                    addUserIcon={props.addUserIcon}
+                  />
+                </>
+              );
+            } else {
+              return (
+                <>
+                  <UserProfile
+                    items={eachItem}
+                    className={css.large}
+                    addUserIcon={props.addUserIcon}
+                  />
+                  <UserProfile
+                    items={eachItem}
+                    className={css.medium}
+                    addUserIcon={props.addUserIcon}
+                  />
+                </>
+              );
+            }
+          })
+        ) : (
+          <div className={css["no-item"]}>
+            <NoItem message={props.notFoundMessage} />
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export const RequestMapComponents = (props) => {
+  const allItems = [...props.profiles];
+  return (
+    <section className={css["sidebar-map-components"]}>
+      <h1>{props.title}</h1>
+      <br />
+      <div className={css["all-components"]}>
+        {allItems.length > 0 ? (
+          allItems.map((eachItem, i) => {
+            return (
+              <>
+                <Request
+                  onClick={props.onClick}
+                  items={eachItem}
+                  className={css.large}
+                />
+                <Request
+                  onClick={props.onMediumClick}
+                  items={eachItem}
+                  className={css.medium}
+                />
+              </>
+            );
+          })
+        ) : (
+          <div className={css["no-item"]}>
+            <NoItem message="No requests found" />
+          </div>
+        )}
       </div>
     </section>
   );
@@ -270,6 +362,124 @@ export const Notification = ({ items, className, onClick }) => {
           {items?.description?.length > 50
             ? items?.description.slice(0, 50) + "..."
             : items?.description}
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export const UserProfile = ({ items, className, addUserIcon, onClick }) => {
+  const general = useContext(General);
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    navigate(`/chat/user/${general.toBase64(items.UserID)}`);
+  };
+
+  return (
+    <section
+      className={`${css["sidebar-user-profile"]} ${className}`}
+      onClick={onClickHandler}
+    >
+      <div className={css["img-container"]}>
+        <img
+          src={
+            items?.ProfilePicture === null || items?.ProfilePicture === ""
+              ? dummy
+              : items?.ProfilePicture
+          }
+          alt=""
+        />
+        <div
+          className={`${css.status} ${
+            items?.IsOnline ? css.online : css.offline
+          }`}
+        ></div>
+      </div>
+      <div className={css["details"]}>
+        <p className={css["name"]}>{items?.UserName}</p>
+        <p className={css["about"]}>
+          {items?.Description?.length > 50
+            ? items?.Description.slice(0, 50) + "..."
+            : items?.Description}
+        </p>
+      </div>
+      {addUserIcon && (
+        <div className={css["user-icon"]}>
+          <i className="fas fa-user-plus"></i>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export const GroupProfile = ({ items, className, addUserIcon }) => {
+  const general = useContext(General);
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    navigate(`/chat/user/${general.toBase64(items.ChatRoomID)}`);
+  };
+
+  return (
+    <section
+      className={`${css["sidebar-user-profile"]} ${className}`}
+      onClick={onClickHandler}
+    >
+      <div className={css["img-container"]}>
+        <img
+          src={
+            items?.ProfilePicture === null || items?.ProfilePicture === ""
+              ? dummy
+              : items?.ProfilePicture
+          }
+          alt=""
+        />
+        <div className={`${css.status} ${css.online}`}></div>
+      </div>
+      <div className={css["details"]}>
+        <p className={css["name"]}>{items?.ChatRoomName}</p>
+      </div>
+      {addUserIcon && (
+        <div className={css["user-icon"]}>
+          <i className="fas fa-user-plus"></i>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export const Request = ({ items, className }) => {
+  const general = useContext(General);
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    navigate(`/chat/user/${general.toBase64(items.UserID)}`);
+  };
+
+  return (
+    <section className={`${css["sidebar-user-profile"]} ${className}`}>
+      <div className={css["img-container"]}>
+        <img
+          src={
+            items?.ProfilePicture === null || items?.ProfilePicture === ""
+              ? dummy
+              : items?.ProfilePicture
+          }
+          alt=""
+        />
+        <div
+          className={`${css.status} ${
+            items?.IsOnline ? css.online : css.offline
+          }`}
+        ></div>
+      </div>
+      <div className={css["details"]}>
+        <p className={css["name"]}>{items?.UserName}</p>
+        <p className={css["about"]}>
+          {items?.Description?.length > 50
+            ? items?.Description.slice(0, 50) + "..."
+            : items?.Description}
         </p>
       </div>
     </section>

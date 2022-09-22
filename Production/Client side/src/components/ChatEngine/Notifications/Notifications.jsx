@@ -40,6 +40,7 @@ const Notifications = () => {
           onAllLink="/chat/notifications/all"
           onActiveLink="/chat/notifications/latest"
           onInActiveLink="/chat/notifications/oldest"
+          showOptions={true}
         />
       </div>
       <div className={css.users}>

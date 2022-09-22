@@ -49,6 +49,7 @@ const Contacts = () => {
           onAllLink="/chat/all"
           onActiveLink="/chat/online"
           onInActiveLink="/chat/offline"
+          showOptions={true}
         />
       </div>
       <div className={css.users}>

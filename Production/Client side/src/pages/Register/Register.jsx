@@ -58,14 +58,13 @@ const Register = () => {
         .then((res) => {
           const user = res.data;
           if (user) {
+            //IF USER IS ADDED SUCCESSFULLY NAVIGATE TO CONFIRM OTP
             console.log("User added successfully", res.data);
-            localStorage.setItem("emailToSendOTP", JSON.stringify(email));
-            localStorage.setItem(
-              "OTPConfirmType",
-              JSON.stringify("Registeration")
-            );
-            //general.setEmailToSendOTP(email);
-            //general.setOTPConfirmType("Registeration");
+            const OTP = {
+              type: "login",
+              email: email,
+            };
+            sessionStorage.setItem("OTP", JSON.stringify(OTP));
             setError("");
             setErrorMessage(false);
             setEmail("");

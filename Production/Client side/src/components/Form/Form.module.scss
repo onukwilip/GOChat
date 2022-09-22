@@ -5,6 +5,23 @@
     @include flex(center, center, 0.7rem);
     width: 100%;
     flex-direction: column;
+    .textarea {
+      width: 100%;
+      textarea {
+        background: rgba(0, 0, 0, 0.1);
+        padding: $padding;
+        width: 100%;
+        border-radius: 5px;
+        outline: none;
+        border: 0;
+        min-height: 100px;
+        font-size: 16px;
+        &:hover {
+          outline: 2px solid rgb(3, 46, 236, 0.5);
+        }
+      }
+    }
+
     .form-group {
       @include flex(stretch, flex-start, 0px);
       min-width: auto;
@@ -13,7 +30,7 @@
       background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       &:hover {
-        border: 2px solid rgb(3, 46, 236, 0.5);
+        outline: 2px solid rgb(3, 46, 236, 0.5);
       }
       .form-icon {
         @include flex(center, center, 0px);

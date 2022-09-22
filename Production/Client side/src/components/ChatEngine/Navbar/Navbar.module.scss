@@ -3,6 +3,7 @@
   @include flex(stretch, space-between, 0);
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
   .active {
     i {
       color: $button-default;
@@ -10,7 +11,7 @@
   }
   & > div {
     height: auto;
-    @include flex(center, center, 5rem);
+    @include flex(center, center, 3.4rem);
     flex-direction: column;
     padding: $padding + 30 0;
     img {
@@ -18,10 +19,12 @@
       border: $img-border;
       filter: $shadow;
       border-radius: 50%;
+      height: 60px;
+      object-fit: cover;
     }
     i {
       color: $button-hover-default;
-      transform: scale(2.5);
+      transform: scale(2.1);
       cursor: pointer;
 
       &.power {

@@ -36,6 +36,7 @@ const Messages = () => {
           onAllLink="/chat/messages/all"
           onActiveLink="/chat/messages/read"
           onInActiveLink="/chat/messages/unread"
+          showOptions={true}
         />
       </div>
       <div className={css.users}>

@@ -5,6 +5,7 @@
   gap: 0;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
 }
 .navbar .active i {
   color: rgb(13, 153, 235);
@@ -14,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 3.4rem;
   flex-direction: column;
   padding: 40px 0;
 }
@@ -23,10 +24,13 @@
   border: 3px solid white;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4));
   border-radius: 50%;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .navbar > div i {
   color: rgba(13, 153, 235, 0.7);
-  transform: scale(2.5);
+  transform: scale(2.1);
   cursor: pointer;
 }
 .navbar > div i.power {

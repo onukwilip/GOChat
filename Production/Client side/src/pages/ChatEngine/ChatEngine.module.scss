@@ -73,7 +73,8 @@
       height: 100%;
       .sidebar-children {
         background-color: white;
-        height: 100vh;
+        // height: 100vh;
+        min-height: 100vh;
       }
     }
     .chat-block {
@@ -83,6 +84,7 @@
   }
   .mobile-body {
     display: none;
+    min-height: 100vh;
   }
 }
 
@@ -104,8 +106,10 @@
       display: block;
       width: 100%;
       background-color: #fff;
-      height: 100%;
-      //overflow-y: auto;
+      min-height: 100vh;
+      height: auto;
+      //height: 100%;
+      overflow-y: auto;
     }
   }
 }

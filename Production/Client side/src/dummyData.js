@@ -194,6 +194,336 @@ export const messages = [
   },
 ];
 
+export const users = [
+  {
+    id: "1",
+    UserID: "7ca077d6-91e6-4d35-a15e-87a9c303b9d3",
+    UserName: "Prince Onukwili",
+    ProfilePicture:
+      /* "https://randompicturegenerator.com/img/people-gene…dd8fd68bf84151198812893820a611cf1ac231cb9_640.jpg", */ baseUrl +
+      `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "11",
+    UserID: "c17d2e13-1a60-4804-9a27-8bde45d6abd6",
+    UserName: "Olubunmi Rajendra",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059388-a35554015a42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "2",
+    UserID: "08bff4da-3382-11ed-a261-0242ac120002",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "3",
+    UserID: "3e06b1f2-a1a0-488b-b4d9-bbbb57ffc4ae",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "4",
+    UserID: "7b4f3c29-c13e-4084-a115-98a726b1b56e",
+    UserName: "Vasanta Kim",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
+  {
+    id: "5",
+    UserID: "bdc3dfa7-b340-4282-8592-e050ac409f6e",
+    UserName: "Maia Clint",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059175-53cb22261d38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus",
+  },
+  {
+    id: "6",
+    UserID: "95740b58-66b8-4c8f-87b2-b44e4a971756",
+    UserName: "Min-Ji Neha",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero",
+  },
+  {
+    id: "7",
+    UserID: "0c22593c-2951-4300-a221-6807089381bc",
+    UserName: "Sharifah Lesley",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059189-6bace4ad1ab8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MTV8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie at",
+  },
+  {
+    id: "8",
+    UserID: "fda2781b-d202-4be3-a880-f06e7e96e209",
+    UserName: "Cindi Jayanta",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare",
+  },
+  {
+    id: "9",
+    UserID: "9b423208-a5f8-4bc6-a41d-94f385a299b9",
+    UserName: "Rita Dipaka",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus",
+  },
+  {
+    id: "1",
+    UserID: "7ca077d6-91e6-4d35-a15e-87a9c303b9d3",
+    UserName: "Prince Onukwili",
+    ProfilePicture:
+      /* "https://randompicturegenerator.com/img/people-gene…dd8fd68bf84151198812893820a611cf1ac231cb9_640.jpg", */ baseUrl +
+      `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "11",
+    UserID: "7c4b2c6a-5d92-433f-9bba-587a86c1b42f",
+    UserName: "Olubunmi Rajendra",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059388-a35554015a42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "2",
+    UserID: "08bff4da-3382-11ed-a261-0242ac120002",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "3",
+    UserID: "3e06b1f2-a1a0-488b-b4d9-bbbb57ffc4ae",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "4",
+    UserID: "7b4f3c29-c13e-4084-a115-98a726b1b56e",
+    UserName: "Vasanta Kim",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
+  {
+    id: "5",
+    UserID: "bdc3dfa7-b340-4282-8592-e050ac409f6e",
+    UserName: "Maia Clint",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059175-53cb22261d38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus",
+  },
+  {
+    id: "6",
+    UserID: "95740b58-66b8-4c8f-87b2-b44e4a971756",
+    UserName: "Min-Ji Neha",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero",
+  },
+  {
+    id: "7",
+    UserID: "0c22593c-2951-4300-a221-6807089381bc",
+    UserName: "Sharifah Lesley",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059189-6bace4ad1ab8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MTV8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie at",
+  },
+  {
+    id: "8",
+    UserID: "fda2781b-d202-4be3-a880-f06e7e96e209",
+    UserName: "Cindi Jayanta",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare",
+  },
+  {
+    id: "9",
+    UserID: "9b423208-a5f8-4bc6-a41d-94f385a299b9",
+    UserName: "Rita Dipaka",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus",
+  },
+  {
+    id: "1",
+    UserID: "7ca077d6-91e6-4d35-a15e-87a9c303b9d3",
+    UserName: "Prince Onukwili",
+    ProfilePicture:
+      /* "https://randompicturegenerator.com/img/people-gene…dd8fd68bf84151198812893820a611cf1ac231cb9_640.jpg", */ baseUrl +
+      `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "11",
+    UserID: "7c4b2c6a-5d92-433f-9bba-587a86c1b42f",
+    UserName: "Olubunmi Rajendra",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059388-a35554015a42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description: "Hello...I'm Prince",
+  },
+  {
+    id: "2",
+    UserID: "08bff4da-3382-11ed-a261-0242ac120002",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "3",
+    UserID: "3e06b1f2-a1a0-488b-b4d9-bbbb57ffc4ae",
+    UserName: "Yewande Ásbjǫrn",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque blanditiis id fuga, dolorem quo provident nihil consectetur iste aperiam incidunt?",
+  },
+  {
+    id: "4",
+    UserID: "7b4f3c29-c13e-4084-a115-98a726b1b56e",
+    UserName: "Vasanta Kim",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
+  {
+    id: "5",
+    UserID: "bdc3dfa7-b340-4282-8592-e050ac409f6e",
+    UserName: "Maia Clint",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059175-53cb22261d38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus",
+  },
+  {
+    id: "6",
+    UserID: "95740b58-66b8-4c8f-87b2-b44e4a971756",
+    UserName: "Min-Ji Neha",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero",
+  },
+  {
+    id: "7",
+    UserID: "0c22593c-2951-4300-a221-6807089381bc",
+    UserName: "Sharifah Lesley",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1657214059189-6bace4ad1ab8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MTV8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie at",
+  },
+  {
+    id: "8",
+    UserID: "fda2781b-d202-4be3-a880-f06e7e96e209",
+    UserName: "Cindi Jayanta",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", //baseUrl + `?person`,
+    IsOnline: false,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare",
+  },
+  {
+    id: "9",
+    UserID: "9b423208-a5f8-4bc6-a41d-94f385a299b9",
+    UserName: "Rita Dipaka",
+    ProfilePicture:
+      "https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=360&q=80", //baseUrl + `?person`,
+    IsOnline: true,
+    LastSeen: new Date("2022 / 01 / 01"),
+    Description:
+      "ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus",
+  },
+];
+
 export const Chats = [
   {
     chatId: "1",
