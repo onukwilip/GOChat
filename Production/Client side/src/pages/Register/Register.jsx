@@ -114,7 +114,9 @@ const Register = () => {
                   value={username}
                   type="text"
                   required={true}
-                  onChange={setUsername}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
                   placeholder="Username"
                 />
               </div>
@@ -124,7 +126,9 @@ const Register = () => {
                   value={email}
                   type="email"
                   required={true}
-                  onChange={setEmail}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   placeholder="Email address"
                 />
               </div>
@@ -135,7 +139,9 @@ const Register = () => {
               required={true}
               value={password}
               type="password"
-              onChange={setPassword}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <FormGroup
               icon="fa fa-lock"
@@ -143,7 +149,9 @@ const Register = () => {
               required={true}
               value={confirm}
               type="password"
-              onChange={setConfirm}
+              onChange={(e) => {
+                setConfirm(e.target.value);
+              }}
             />
             <FormGroup
               icon="fa fa-phone"
@@ -151,7 +159,9 @@ const Register = () => {
               required={true}
               value={phone}
               type="tel"
-              onChange={setPhone}
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
             />
             <Button>Sign up</Button>
             {errorMessage && <p className="error">{error}</p>}

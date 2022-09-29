@@ -10,9 +10,179 @@ import Loader from "../../Loader/Loader";
 import ServerError from "../../ServerError/ServerError";
 
 const Profile = ({ user }) => {
+  const [requestStatus, setRequestStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+  const general = useContext(General);
+  const { userid } = useParams("userid");
+  const _recipientId = general.fromBase64(userid);
+  const apiPrefix = general.domain;
+  const config = general.config;
+  const url = apiPrefix + `api`;
+  const [senderId, setSenderId] = useState(localStorage.getItem("UserId"));
+  const [disabled, setDisabled] = useState({
+    cancelDisabled: false,
+    requestDisabled: false,
+  });
+
+  const getRequestStatus = async () => {
+    setLoading(true);
+
+    const _url = `${url}/requests/verify/${senderId}/${_recipientId}`;
+    const response = await axios.get(_url).catch((e) => {
+      console.log(e);
+      setLoading(false);
+    });
+
+    if (response) {
+      setLoading(false);
+    }
+
+    const responseData = Number(response?.data?.ResponseCode);
+    setRequestStatus(responseData);
+    console.log("Response code", responseData);
+  };
+
+  const sendRequest_User_User = async () => {
+    setDisabled((prev) => ({
+      ...prev,
+      requestDisabled: true,
+    }));
+
+    const userResponse = await axios
+      .get(`${url}/user/${senderId}`)
+      .catch((e) => {
+        console.log(e);
+      });
+
+    let user;
+
+    userResponse?.data?.Data?.map((eachUser) => {
+      user = eachUser;
+    });
+
+    const body = {
+      From: { UserID: senderId },
+      To: { UserID: _recipientId },
+      Message: `Hello...My name is ${user?.UserName}, Can we be friends?`,
+      From_Type: "User",
+      To_Type: "User",
+    };
+
+    const _url = `${url}/request`;
+
+    const response = await axios.post(_url, body).catch((e) => {
+      setDisabled((prev) => ({
+        ...prev,
+        requestDisabled: false,
+      }));
+      console.log(e);
+    });
+
+    if (response) {
+      setDisabled((prev) => ({
+        ...prev,
+        requestDisabled: false,
+      }));
+    }
+
+    console.log(response);
+    general.setRefreshState((prev) => !prev);
+  };
+
+  const cancelRequest = async () => {
+    setDisabled((prev) => ({
+      ...prev,
+      cancelDisabled: true,
+    }));
+
+    const ip = await axios
+      .get("https://geolocation-db.com/json/")
+      .catch((e) => {
+        setDisabled((prev) => ({
+          ...prev,
+          cancelDisabled: false,
+        }));
+        console.log(e);
+      });
+
+    const _url = `${url}/requests/delete/${senderId}/${general.toBase64(
+      ip.data.IPv4
+    )}/${_recipientId}`;
+
+    const response = await axios.delete(_url).catch((e) => {
+      setDisabled((prev) => ({
+        ...prev,
+        cancelDisabled: false,
+      }));
+      console.log(e);
+    });
+
+    if (response) {
+      setDisabled((prev) => ({
+        ...prev,
+        cancelDisabled: false,
+      }));
+    }
+
+    console.log(response);
+    general.setRefreshState((prev) => !prev);
+  };
+
+  const blockFella = async () => {
+    const componentToRender = {
+      component: "RemoveFella",
+      values: {
+        From_ID: senderId,
+        To_ID: _recipientId,
+      },
+    };
+
+    sessionStorage.setItem(
+      "componentToRender",
+      JSON.stringify(componentToRender)
+    );
+    general.setModalState("true");
+    sessionStorage.setItem("modalState", "true");
+  };
+
+  const ignoreFella = async () => {
+    const ip = await axios
+      .get("https://geolocation-db.com/json/")
+      .catch((e) => {
+        console.log(e);
+      });
+
+    const base64IP = general.toBase64(ip?.data?.IPv4);
+    const response = await axios.delete(
+      `${url}/chatroom/${senderId}/${_recipientId}/${base64IP}/ignore`,
+      { ...config }
+    );
+
+    console.log(response);
+    general.setRefreshState((prev) => !prev);
+  };
+
+  const unIgnoreFella = async () => {
+    const ip = await axios
+      .get("https://geolocation-db.com/json/")
+      .catch((e) => {
+        console.log(e);
+      });
+
+    const base64IP = general.toBase64(ip?.data?.IPv4);
+    const response = await axios.post(
+      `${url}/chatroom/${senderId}/${_recipientId}/${base64IP}/unignore`,
+      { ...config }
+    );
+
+    console.log(response);
+    general.setRefreshState((prev) => !prev);
+  };
+
   useEffect(() => {
-    return () => {};
-  }, []);
+    getRequestStatus();
+    setSenderId(localStorage.getItem("UserId"));
+  }, [general.refreshState]);
   return (
     <>
       <div className={css.profile}>
@@ -55,16 +225,58 @@ const Profile = ({ user }) => {
           </div>
         </div>
         {user.UserID !== localStorage.getItem("UserId") && (
-          <div className={css["btn-container"]}>
-            <Button>
-              <i className="fa-solid fa-user-plus"></i>
-              Add fella
-            </Button>
-            <Button className={css["btn-danger"]}>
-              <i className="fa-solid fa-ban"></i>
-              Remove fella
-            </Button>
-          </div>
+          <>
+            <div className={css["btn-container"]}>
+              {loading ? (
+                <>
+                  <p align="center">Loading...</p>
+                </>
+              ) : (
+                <>
+                  {requestStatus === 200 && (
+                    <Button
+                      onClick={sendRequest_User_User}
+                      disabled={disabled.requestDisabled}
+                    >
+                      <i className="fa-solid fa-user-plus"></i>
+                      Add fella
+                    </Button>
+                  )}
+                  {requestStatus === 402 && (
+                    <Button className={css["btn-danger"]} onClick={ignoreFella}>
+                      <i className="fa-solid fa-user-slash"></i>
+                      Ignore fella
+                    </Button>
+                  )}
+                  {requestStatus === 403 && (
+                    <Button onClick={unIgnoreFella}>
+                      <i className="fa-solid fa-user-plus"></i>
+                      Unignore fella
+                    </Button>
+                  )}
+                  {requestStatus === 401 && (
+                    <Button
+                      className={css["btn-danger"]}
+                      disabled={disabled.cancelDisabled}
+                      onClick={cancelRequest}
+                    >
+                      <i className="fa-solid fa-ban"></i>
+                      Cancel request
+                    </Button>
+                  )}
+                </>
+              )}
+            </div>
+            {requestStatus !== 200 && requestStatus !== 401 && (
+              <div className={css["danger-zone"]}>
+                <h1>Danger Zone !</h1>
+                <Button className={css["btn-danger"]} onClick={blockFella}>
+                  <i className="fa-solid fa-ban"></i>
+                  Block fella
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </>
@@ -426,16 +638,23 @@ const User = () => {
     const ip = await axios.get("https://geolocation-db.com/json/");
 
     const _url = `${url}/user/${_userid}`;
-    const res = await axios.get(_url).catch(() => {
+    const res = await axios.get(_url).catch((e) => {
+      if (e.request) {
+        setLoading(false);
+        setError(true);
+      }
+    });
+    const data = res?.data?.Data;
+    if (data !== null) {
+      data?.map((_user) => {
+        setUser(_user);
+        setLoading(false);
+        setError(false);
+      });
+    } else {
       setLoading(false);
       setError(true);
-    });
-    const data = res.data.Data;
-    data.map((_user) => {
-      setUser(_user);
-      setLoading(false);
-      setError(false);
-    });
+    }
   };
 
   useEffect(() => {

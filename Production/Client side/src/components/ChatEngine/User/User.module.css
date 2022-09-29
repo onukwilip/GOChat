@@ -5,7 +5,7 @@
 
 .user {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: stretch;
   gap: 0;
   flex-direction: column;
@@ -109,6 +109,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .profile .btn-container button {
   display: flex;
@@ -124,6 +125,34 @@
   background-color: orangered;
 }
 .profile .btn-container .btn-danger:hover {
+  background-color: rgba(255, 69, 0, 0.7);
+}
+
+.danger-zone {
+  width: 100%;
+  border: 5px double orangered;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.danger-zone button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.danger-zone button i {
+  color: white;
+}
+.danger-zone h1 {
+  color: orangered;
+  font-weight: bold;
+}
+.danger-zone .btn-danger {
+  gap: 4px;
+  background-color: orangered;
+}
+.danger-zone .btn-danger:hover {
   background-color: rgba(255, 69, 0, 0.7);
 }
 

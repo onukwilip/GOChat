@@ -13,5 +13,8 @@ namespace GOChatAPI.Models
         public UserModel From { get; set; }
         public UserModel To { get; set; }
         public string Message { get; set; }
+        public string From_Type { get; set; }
+        public string To_Type { get; set; }
+        public int ID { get; set; }
     }
 }

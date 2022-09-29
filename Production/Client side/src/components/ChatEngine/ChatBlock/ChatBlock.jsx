@@ -14,14 +14,14 @@ const ChatBlock = (props) => {
   const [chatRoomProfile, setChatRoomProfile] = useState({
     ...JSON.parse(sessionStorage.getItem("chatRoom")),
   });
-  const chatRoomVariiable = {
+  const chatRoomVariable = {
     ...JSON.parse(sessionStorage.getItem("chatRoom")),
   };
   const [chats, setChats] = useState([]);
 
   const getAllChats = () => {
     const allChats = Chats.filter(
-      (chat) => chat.chatRoomId === chatRoomVariiable.chatRoomId
+      (chat) => chat.chatRoomId === chatRoomVariable.ChatRoomID
     );
     setChats(allChats);
     console.log("Chats", allChats);
@@ -41,11 +41,11 @@ const ChatBlock = (props) => {
 
   useEffect(() => {
     setChatRoomProfile({ ...JSON.parse(sessionStorage.getItem("chatRoom")) });
-    console.log(`User name ${props.userName}`, `Image ${props.image}`);
-    console.log("chat room profile", chatRoomProfile);
+    // console.log(`User name ${props.userName}`, `Image ${props.image}`);
+    // console.log("chat room profile", chatRoomProfile);
     getAllChats();
   }, [general.refreshState]);
-  const date = new Date(chatRoomProfile.lastSeen);
+  const date = new Date(chatRoomProfile.LastSeen);
 
   return (
     <section className={css.chat}>
@@ -56,13 +56,13 @@ const ChatBlock = (props) => {
             <div className={css["img-container"]}>
               <img
                 src={
-                  // chatRoomProfile?.chatRoomPicture
-                  //   ? chatRoomProfile?.chatRoomPicture
+                  // chatRoomProfile?.ProfilePicture
+                  //   ? chatRoomProfile?.ProfilePicture
                   //   : props.image
 
                   Object.keys(chatRoomProfile).length > 0 &&
-                  chatRoomProfile?.chatRoomPicture
-                    ? chatRoomProfile?.chatRoomPicture
+                  chatRoomProfile?.ProfilePicture
+                    ? chatRoomProfile?.ProfilePicture
                     : Object.keys(chatRoomProfile).length < 1 &&
                       props.image != null
                     ? props.image
@@ -72,36 +72,36 @@ const ChatBlock = (props) => {
               />
               <div
                 className={`${css.status} ${
-                  // chatRoomProfile?.isOnline ? css.online : css.offline
+                  // chatRoomProfile?.IsOnline ? css.online : css.offline
                   Object.keys(chatRoomProfile).length > 0 &&
-                  chatRoomProfile.isOnline
+                  chatRoomProfile.IsOnline
                     ? css.online
                     : Object.keys(chatRoomProfile).length > 0 &&
-                      !chatRoomProfile.isOnline
+                      !chatRoomProfile.IsOnline
                     ? css.offline
-                    : css.isOnline
+                    : css.IsOnline
                 }`}
               ></div>
             </div>
             <div className={css["details"]}>
               <p className={css["name"]}>
-                {chatRoomProfile.chatRoomName
-                  ? chatRoomProfile.chatRoomName
+                {chatRoomProfile.ChatRoomName
+                  ? chatRoomProfile.ChatRoomName
                   : props.userName}
               </p>
               <p className={css.status}>
                 {
-                  /* {chatRoomProfile.isOnline
+                  /* {chatRoomProfile.IsOnline
                   ? "Online"
                   : `Last seen ${date.getFullYear()}/${
                       date.getMonth() + 1
                     }/${date.getDate()}`} */
 
                   Object.keys(chatRoomProfile).length > 0 &&
-                  chatRoomProfile?.isOnline
+                  chatRoomProfile?.IsOnline
                     ? "Online"
                     : Object.keys(chatRoomProfile).length > 0 &&
-                      !chatRoomProfile?.isOnline
+                      !chatRoomProfile?.IsOnline
                     ? `Last seen ${date.getFullYear()}/${
                         date.getMonth() + 1
                       }/${date.getDate()}`

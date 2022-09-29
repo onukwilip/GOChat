@@ -17,11 +17,16 @@ namespace GOChatAPI
         //Success or Failure
         Successfull=200,
         Unsuccessfull = 400,
-        NoUser=401,
-        NoChatRoom=402,
-        NoRequests=403,
+        NoUser=404,
+        NoRequests=404,
+        NoChatRoom=404,
         //Mail
         MailNotSent = 100,
+        //Requests Validation
+        RequestValid=200,
+        RequestExists=401,
+        ChatRoomMemberExists=402,
+        UserIsIgnored = 403
     }
 
     public class General

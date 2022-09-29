@@ -36,13 +36,18 @@ const AllContacts = () => {
           setLoading(false);
           setError(false);
         })
-        .catch(() => {
-          setLoading(false);
-          setError(true);
+        .catch((e) => {
+          if (e.request) {
+            setLoading(false);
+            setError(true);
+          } else {
+            setLoading(false);
+            setError(false);
+          }
         });
     } else if (status === "groups") {
       axios
-        .get(`${chatroomUrl}`)
+        .get(`${chatroomUrl}group`)
         .then((response) => {
           console.log(response.data);
           const users = response.data.Data;
@@ -73,9 +78,14 @@ const AllContacts = () => {
           setLoading(false);
           setError(false);
         })
-        .catch(() => {
-          setLoading(false);
-          setError(true);
+        .catch((e) => {
+          if (e.request) {
+            setLoading(false);
+            setError(true);
+          } else {
+            setLoading(false);
+            setError(false);
+          }
         });
     }
   };

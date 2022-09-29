@@ -10,6 +10,7 @@ const Navbar = (props) => {
   const general = useContext(General);
   const apiPrefix = general.domain;
   const config = general.config;
+  const userId = localStorage.getItem("UserId");
   const url = apiPrefix + `api/user/IPAddress/`;
 
   //GET IP ADDRESS OF USER
@@ -90,7 +91,7 @@ const Navbar = (props) => {
         </div>
         <div className={css["r-side"]}>
           <NavLink
-            to={`/chat/user/${general.toBase64(props.userId)}`}
+            to={`/chat/user/${general.toBase64(userId)}`}
             className={({ isActive }) => (isActive ? css.active : "")}
           >
             <div>

@@ -11,12 +11,17 @@ export const General = createContext({
   setRefreshState: () => {},
   toBase64: (string) => {},
   fromBase64: (string) => {},
+  modalState: "",
+  setModalState: (state) => {},
 });
 
 const GeneralContext = (props) => {
   const [emailToSendOTP, setEmailToSendOTP] = useState("");
   const [OTPConfirmType, setOTPConfirmType] = useState("");
   const [refreshState, setRefreshState] = useState(false);
+  const [modalState, setModalState] = useState(
+    sessionStorage.getItem("modalState")
+  );
   const domain = `https://localhost:44357/`;
   // const domain = "https://gochatapi.azurewebsites.net/";
   const config = {
@@ -45,6 +50,8 @@ const GeneralContext = (props) => {
     setRefreshState: setRefreshState,
     toBase64: toBase64,
     fromBase64: fromBase64,
+    modalState: modalState,
+    setModalState: setModalState,
   };
 
   return <General.Provider value={context}>{props.children}</General.Provider>;

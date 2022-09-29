@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+.modal {
+  min-height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  @include flex(center, center, 0);
+  position: fixed;
+  z-index: 99;
+  top: 0;
+
+  .bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: rgba(black, 0.4);
+    position: absolute;
+  }
+  .body {
+    max-width: 500px;
+    word-wrap: break-word;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    @include flex(center, center, 0);
+  }
+}
+
+.remove-fella {
+  .header {
+    text-align: center;
+    color: black;
+    font-size: 19px;
+  }
+  .btn-danger {
+    gap: 4px;
+    background-color: orangered;
+    @include flex(center, center, 0.3rem);
+    i {
+      color: white;
+    }
+    &:hover {
+      background-color: rgba(orangered, 0.7);
+    }
+  }
+}

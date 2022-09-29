@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5397a7f7.css",
-    "main.js": "/static/js/main.9fbe4ea7.js",
+    "main.css": "/static/css/main.d91552c2.css",
+    "main.js": "/static/js/main.6179f3a6.js",
     "static/media/chat-bg3 (2).jpg": "/static/media/chat-bg3 (2).25c1a02df0cb3544717e.jpg",
     "static/media/icons8-google-512 (1).png": "/static/media/icons8-google-512 (1).6466ecb93dbf423404bd.png",
     "static/media/Gumela Regular.otf": "/static/media/Gumela Regular.0ae83c6988a536716eb4.otf",
@@ -9,11 +9,11 @@
     "static/media/icons8-facebook-512 (2).png": "/static/media/icons8-facebook-512 (2).b708e9c18452ac7dcec1.png",
     "static/media/dummy-img.png": "/static/media/dummy-img.11d3912c19434ca986ba.png",
     "index.html": "/index.html",
-    "main.5397a7f7.css.map": "/static/css/main.5397a7f7.css.map",
-    "main.9fbe4ea7.js.map": "/static/js/main.9fbe4ea7.js.map"
+    "main.d91552c2.css.map": "/static/css/main.d91552c2.css.map",
+    "main.6179f3a6.js.map": "/static/js/main.6179f3a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.5397a7f7.css",
-    "static/js/main.9fbe4ea7.js"
+    "static/css/main.d91552c2.css",
+    "static/js/main.6179f3a6.js"
   ]
 }

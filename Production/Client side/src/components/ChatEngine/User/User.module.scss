@@ -5,7 +5,7 @@
 }
 
 .user {
-  @include flex(stretch, center, 0);
+  @include flex(stretch, start, 0);
   flex-direction: column;
   min-height: 100%;
   overflow-y: auto;
@@ -101,6 +101,7 @@
   .btn-container {
     width: 100%;
     @include flex(center, center, 1rem);
+    flex-wrap: wrap;
     button {
       @include flex(center, center, 1rem);
       i {
@@ -113,6 +114,31 @@
       &:hover {
         background-color: rgba(orangered, 0.7);
       }
+    }
+  }
+}
+
+.danger-zone {
+  width: 100%;
+  border: 5px double orangered;
+  margin-top: 20px;
+  padding: $padding;
+  border-radius: 10px;
+  button {
+    @include flex(center, center, 1rem);
+    i {
+      color: white;
+    }
+  }
+  h1 {
+    color: orangered;
+    font-weight: bold;
+  }
+  .btn-danger {
+    gap: 4px;
+    background-color: orangered;
+    &:hover {
+      background-color: rgba(orangered, 0.7);
     }
   }
 }
