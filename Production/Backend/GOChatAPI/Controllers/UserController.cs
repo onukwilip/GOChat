@@ -15,6 +15,9 @@ using System.IO;
 
 namespace GOChatAPI.Controllers
 {
+    /// <summary>
+    /// Handles all API endoints concerning the user and it's information
+    /// </summary>
     [RoutePrefix("api/user")]
     public class UserController : ApiController
     {

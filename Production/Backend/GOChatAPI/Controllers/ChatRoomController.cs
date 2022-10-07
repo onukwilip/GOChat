@@ -242,6 +242,8 @@ namespace GOChatAPI.Controllers
         /// <summary>
         /// Gets all chatRooms associated to a user
         /// </summary>
+        /// <param name="UserID">The ID of the user sending the request</param>
+        /// <param name="Base64IPAddress">The IP address of the user sending the request</param>
         /// <returns>Response object</returns>
         [Route("{UserID}/{Base64IPAddress}")]
         [HttpGet]
@@ -280,7 +282,7 @@ namespace GOChatAPI.Controllers
                     chatRoom.ChatRoomID = dt.Rows[j]["ChatRoomID"].ToString();
                     chatRoom.ChatRoomName = dt.Rows[j]["ChatRoomName"].ToString();
                     chatRoom.ProfilePicture = imgSrc;
-                    //chatRoom.Type = dt.Rows[j]["ChatRoomType"].ToString();
+                    chatRoom.Type = dt.Rows[j]["ChatRoomType"].ToString();
                     chatRoom.IsOnline = Convert.ToBoolean(dt.Rows[j]["IsOnline"]);
                     chatRoom.LastSeen = Convert.ToDateTime(dt.Rows[j]["LastSeen"]);
                     chatRoom.Description = dt.Rows[j]["_Description"].ToString();
@@ -299,6 +301,119 @@ namespace GOChatAPI.Controllers
                 response.ResponseCode = noChatRoom;
                 response.ResponseMessage = ResponseCodes.NoChatRoom.ToString();
             }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Get a chatroom related to a user using it's ID
+        /// </summary>
+        /// <param name="ChatRoomID">The ID of the Chatroom to be returned</param>
+        /// <param name="UserID">The ID of the user sending the request</param>
+        /// <param name="Base64IPAddress">The IP address of the user sending the request</param>
+        /// <returns>Response object</returns>
+        [HttpGet]
+        [Route("{UserID}/{Base64IPAddress}/{Base64ChatRoomID}/chatroom")]
+        public ResponseModel GetChatRoom(string Base64ChatRoomID, string UserID, string Base64IPAddress)
+        {
+            //DECLARE INITIAL VARIABLES AND OBJECTS
+            ResponseModel response = new ResponseModel();
+            List<object> chatRooms = new List<object>();
+            List<ChatsModel> chats = new List<ChatsModel>();
+            List<UserModel> members = new List<UserModel>();
+            ChatsController chatsController = new ChatsController();
+
+            con.Open();
+
+            var ByteCode = Convert.FromBase64String(Base64IPAddress);
+            string IPAddress = Encoding.UTF8.GetString(ByteCode);
+
+            var ChatroomByteCode = Convert.FromBase64String(Base64ChatRoomID);
+            string ChatRoomID = Encoding.UTF8.GetString(ChatroomByteCode);
+                    
+            //GET ALL CHATROOM MEMBERS
+            SqlCommand cmdChatRoomMembers = new SqlCommand("GetChatRoomMembers", con);
+            cmdChatRoomMembers.CommandType = CommandType.StoredProcedure;
+            cmdChatRoomMembers.Parameters.AddWithValue("@ChatRoomID", ChatRoomID);
+            SqlDataAdapter sdaChatRoomMembers = new SqlDataAdapter(cmdChatRoomMembers);
+            DataTable dtChatRoomMembers = new DataTable();
+            sdaChatRoomMembers.Fill(dtChatRoomMembers);
+
+            //GET A SPECIFIC CHATROOM
+            SqlCommand cmd = new SqlCommand("GetChatRoom", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserID", UserID);
+            cmd.Parameters.AddWithValue("@IPAddress", IPAddress);
+            cmd.Parameters.AddWithValue("@ChatRoomID", ChatRoomID);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            int i = dt.Rows.Count;
+
+            //IF CHATROOM EXISTS
+            if (i > 0)
+            {
+                //MAP OBJECTS FROM DATABASE INTO CHATROOM OBJECT
+                ChatRoomModel chatRoom = new ChatRoomModel();
+
+                string imgSrc = String.Empty;
+
+                if (dt.Rows[0]["ChatRoomPicture"].ToString() != null && dt.Rows[0]["ChatRoomPicture"].ToString() != "")
+                {
+                    var base64 = Convert.ToBase64String((byte[])dt.Rows[0]["ChatRoomPicture"]);
+                    imgSrc = String.Format("data:image/png;base64, {0}", base64);
+                }
+
+                chatRoom.ChatRoomID = dt.Rows[0]["ChatRoomID"].ToString();
+                chatRoom.ChatRoomName = dt.Rows[0]["ChatRoomName"].ToString();
+                chatRoom.ProfilePicture = imgSrc;
+                chatRoom.Type = dt.Rows[0]["ChatRoomType"].ToString();
+                chatRoom.IsOnline = Convert.ToBoolean(dt.Rows[0]["IsOnline"]);
+                chatRoom.LastSeen = Convert.ToDateTime(dt.Rows[0]["LastSeen"]);
+                chatRoom.Description = dt.Rows[0]["_Description"].ToString();
+                              
+                //GET ALL CHATROOM MEMBERS FROM DATABASE AND MAP INTO MEMBER ARRAY
+                for (int chm = 0; chm < dtChatRoomMembers.Rows.Count; chm++)
+                {
+                    UserModel user = new UserModel();
+
+                    string memberBytes = dtChatRoomMembers.Rows[0]["ProfilePicture"].ToString(), memberImage = String.Empty;
+
+                    if (memberBytes != null && memberBytes != "")
+                    {
+                        var base64 = Convert.ToBase64String((byte[])dtChatRoomMembers.Rows[0]["ProfilePicture"]);
+                        memberImage = String.Format("data:image/png;base64, {0}", base64);
+                    }
+
+                    user.UserID = dtChatRoomMembers.Rows[chm]["MemberId"].ToString();
+                    user.UserName = dtChatRoomMembers.Rows[chm]["UserName"].ToString();
+                    user.Email = dtChatRoomMembers.Rows[chm]["Email"].ToString();
+                    user.Description = dtChatRoomMembers.Rows[chm]["Description"].ToString();
+                    user.ProfilePicture = memberImage;
+
+                    members.Add(user);
+                }
+
+                chats = chatsController.GetChatRoomChats(Base64ChatRoomID);
+                chatRoom.Chats = chats;
+                chatRoom.Members = members;
+
+                chatRooms.Add(chatRoom);
+
+                int success = (int)ResponseCodes.Successfull;
+                response.ResponseCode = success;
+                response.ResponseMessage = ResponseCodes.Successfull.ToString();
+                response.Data = chatRooms;
+            }
+            else
+            {
+                int noChatRoom = (int)ResponseCodes.NoChatRoom;
+                response.ResponseCode = noChatRoom;
+                response.ResponseMessage = ResponseCodes.NoChatRoom.ToString();
+            }
+
+            con.Close();
 
             return response;
         }

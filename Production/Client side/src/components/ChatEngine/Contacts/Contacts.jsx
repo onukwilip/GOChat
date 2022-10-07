@@ -37,7 +37,18 @@ const Contacts = () => {
     setLoading(true);
     setError(false);
 
-    const ip = await axios.get("https://geolocation-db.com/json/");
+    const ip = await axios
+      .get("https://geolocation-db.com/json/")
+      //Latest one
+      .catch((e) => {
+        if (e.request) {
+          setLoading(false);
+          setError(true);
+        } else {
+          setLoading(false);
+          setError(false);
+        }
+      });
 
     const response = await axios
       .get(`${url}/${userId}/${general.toBase64(ip?.data?.IPv4)}`)
@@ -148,7 +159,7 @@ const Contacts = () => {
 
   useEffect(() => {
     getChatRooms();
-  }, [general.refreshState, status]);
+  }, [status]);
 
   return (
     <div className={css.contacts}>

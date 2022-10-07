@@ -709,7 +709,7 @@ namespace GOChatAPI.Controllers
             string IPAddress = Encoding.UTF8.GetString(base64EncodedBytes);
 
             var guid = Guid.NewGuid();
-            string ChatRoomID = String.Concat("CHATROOM", "_", guid.ToString(), "_",general.Encrypt(DateTime.Now.Ticks.ToString()));
+            string ChatRoomID = String.Concat("CHATROOM", "_", guid.ToString());
 
             SqlCommand cmd = new SqlCommand("AcceptRequest", con);
             cmd.CommandType = CommandType.StoredProcedure;

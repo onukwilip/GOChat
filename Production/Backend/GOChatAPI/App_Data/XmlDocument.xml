@@ -481,6 +481,58 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:GOChatAPI.Controllers.ChatsController">
+            <summary>
+            Defines all API endoints concerning chats in a chatroom
+            </summary>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatsController.GetChatRoomChats(System.String)">
+            <summary>
+            Get's the chats pertaining to a particular chatroom
+            </summary>
+            <param name="Base64ChatRoomID">Chatroom id in base 64 format</param>
+            <returns></returns>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatsController.Post(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+             <summary>
+             Posts a new chat from the chatroom into the database
+             </summary>
+             <param name="UserID">Id of the user that posted the chat</param>
+             <param name="Base64IPAddress">Base 64 IP address of the user posting the chat</param>
+             <param name="Base64ChatRoomID">Base 64 string of user's chatroom</param>
+             <param name="Message">Message of the chat</param>
+             <param name="AuthorID">ID of user sending the chat</param>
+             <param name="ParentID">ID of chat to be replied</param>
+             <param name="ChatType">The chat specification</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatsController.PostFile(System.String,System.String,System.String,System.String)">
+             <summary>
+             Posts a new chat from the chatroom into the database
+             </summary>
+             <param name="UserID">Id of the user that posted the chat</param>
+             <param name="Base64IPAddress">Base 64 IP address of the user posting the chat</param>
+             <param name="Base64ChatRoomID">Base 64 string of user's chatroom</param>
+             <param name="ChatID">The ID of the chat the files are referring to</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatsController.PostChat(System.String,System.String,GOChatAPI.Models.ChatsModel)">
+             <summary>
+             Posts a new chat from the chatroom into the database
+             </summary>
+             <param name="UserID">Id of the user that posted the chat</param>
+             <param name="Base64IPAddress">Base 64 IP address of the user posting the chat</param>
+             <param name="chats">Object in which the JSON body is being mapped into</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatsController.Delete(System.String,System.String,System.String)">
+            <summary>
+            Delete's a specific chat pertaining a user frm the database
+            </summary>
+            <param name="ChatID">The ID of the chat to be deleted</param>
+            <param name="UserID">The ID of the user sending this request</param>
+            <param name="Base64IPAddress">The base 64 IP address of the user sending the request</param>
+        </member>
         <member name="T:GOChatAPI.Controllers.RequestController">
             <summary>
             Handles all API's responsible for sending, validating and recieving requests(Friend and chatroom requests)
@@ -543,6 +595,11 @@
             <param name="Base64IPAddress">Base 64 ip address of user</param>
             <param name="To_ID">ID of request recipient</param>
             <returns>Response object</returns>
+        </member>
+        <member name="T:GOChatAPI.Controllers.UserController">
+            <summary>
+            Handles all API endoints concerning the user and it's information
+            </summary>
         </member>
         <member name="M:GOChatAPI.Controllers.UserController.GetAll(System.String,System.String)">
             <summary>
@@ -702,6 +759,17 @@
             <summary>
             Gets all chatRooms associated to a user
             </summary>
+            <param name="UserID">The ID of the user sending the request</param>
+            <param name="Base64IPAddress">The IP address of the user sending the request</param>
+            <returns>Response object</returns>
+        </member>
+        <member name="M:GOChatAPI.Controllers.ChatRoomController.GetChatRoom(System.String,System.String,System.String)">
+            <summary>
+            Get a chatroom related to a user using it's ID
+            </summary>
+            <param name="ChatRoomID">The ID of the Chatroom to be returned</param>
+            <param name="UserID">The ID of the user sending the request</param>
+            <param name="Base64IPAddress">The IP address of the user sending the request</param>
             <returns>Response object</returns>
         </member>
         <member name="T:GOChatAPI.Models.RequestModel">

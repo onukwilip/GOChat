@@ -5,14 +5,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\c# practice\ASP.NET Web API's\GOChatAPI\GOChatAPI\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2022-09-15T15:59:12.5603759Z;</History>
+    <History>True|2022-09-29T14:25:15.3409300Z;True|2022-09-15T16:59:12.5603759+01:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>08/25/2022 13:50:02</publishTime>
     </File>
+    <File Include="Areas/HelpPage/TestClient.css">
+      <publishTime>09/22/2022 08:28:29</publishTime>
+    </File>
     <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
-      <publishTime>08/25/2022 13:50:00</publishTime>
+      <publishTime>09/22/2022 08:32:17</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
       <publishTime>08/25/2022 13:50:00</publishTime>
@@ -53,6 +56,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml">
       <publishTime>08/25/2022 13:49:59</publishTime>
     </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TestClientDialogs.cshtml">
+      <publishTime>09/22/2022 08:28:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TestClientReferences.cshtml">
+      <publishTime>09/22/2022 08:50:32</publishTime>
+    </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
       <publishTime>08/25/2022 13:49:59</publishTime>
     </File>
@@ -81,10 +90,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2021 12:53:32</publishTime>
     </File>
     <File Include="bin/GOChatAPI.dll">
-      <publishTime>09/15/2022 16:59:00</publishTime>
+      <publishTime>09/29/2022 15:24:56</publishTime>
     </File>
     <File Include="bin/GOChatAPI.pdb">
-      <publishTime>09/15/2022 16:59:00</publishTime>
+      <publishTime>09/29/2022 15:24:56</publishTime>
     </File>
     <File Include="bin/MailKit.dll">
       <publishTime>06/12/2022 03:12:46</publishTime>
@@ -338,6 +347,186 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Site.css">
       <publishTime>08/25/2022 13:49:02</publishTime>
     </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/22/2022 08:28:18</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>09/22/2022 08:28:18</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>09/22/2022 08:28:18</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>09/22/2022 08:28:17</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>09/22/2022 08:28:17</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>09/22/2022 08:28:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>09/22/2022 08:28:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>09/22/2022 08:28:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>09/22/2022 08:28:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>09/22/2022 08:28:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>09/22/2022 08:28:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>09/22/2022 08:28:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>09/22/2022 08:28:14</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>09/22/2022 08:28:14</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>09/22/2022 08:28:14</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>09/22/2022 08:28:14</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>09/22/2022 08:28:14</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>09/22/2022 08:28:13</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>09/22/2022 08:28:13</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.menu.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>09/22/2022 08:28:12</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>09/22/2022 08:28:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>09/22/2022 08:28:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.spinner.css">
+      <publishTime>09/22/2022 08:28:10</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>09/22/2022 08:28:10</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>09/22/2022 08:28:10</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tooltip.css">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>09/22/2022 08:28:09</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>09/22/2022 08:28:08</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>09/22/2022 08:28:08</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>09/22/2022 08:28:08</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>09/22/2022 08:28:08</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>09/22/2022 08:28:07</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>09/22/2022 08:28:07</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>09/22/2022 08:28:07</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>09/22/2022 08:28:06</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>09/22/2022 08:28:06</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>09/22/2022 08:28:05</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>09/22/2022 08:28:04</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>09/22/2022 08:28:04</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>09/22/2022 08:28:04</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.menu.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>09/22/2022 08:28:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>09/22/2022 08:28:02</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.spinner.min.css">
+      <publishTime>09/22/2022 08:28:02</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>09/22/2022 08:28:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>09/22/2022 08:28:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tooltip.min.css">
+      <publishTime>09/22/2022 08:28:01</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>08/25/2022 13:49:02</publishTime>
     </File>
@@ -383,8 +572,23 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
       <publishTime>08/25/2022 13:49:39</publishTime>
     </File>
+    <File Include="Scripts/jquery-ui-1.9.2.js">
+      <publishTime>09/22/2022 08:28:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.9.2.min.js">
+      <publishTime>09/22/2022 08:28:00</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>09/22/2022 08:28:27</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>09/22/2022 08:28:27</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>08/25/2022 13:50:03</publishTime>
+    </File>
+    <File Include="Scripts/WebApiTestClient.js">
+      <publishTime>09/22/2022 08:28:28</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>08/25/2022 13:49:02</publishTime>
@@ -402,7 +606,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/25/2022 13:49:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/15/2022 16:59:06</publishTime>
+      <publishTime>09/29/2022 15:25:11</publishTime>
     </File>
   </ItemGroup>
 </Project>

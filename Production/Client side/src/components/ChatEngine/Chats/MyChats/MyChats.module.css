@@ -28,12 +28,39 @@
   gap: 0.2rem;
   flex-direction: column;
 }
+.my-chats .filter-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  position: relative;
+}
+.my-chats .filter-container .actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  flex-direction: column;
+  position: absolute;
+  left: -2.2rem;
+}
+.my-chats .filter-container .actions > div {
+  transform: scale(0.8);
+}
+.my-chats .filter-container .actions .edit {
+  color: green;
+}
+.my-chats .filter-container .actions .delete {
+  color: orangered;
+}
 .my-chats .filter {
   background-color: rgba(13, 153, 235, 0.5);
   border-radius: 5px;
   max-width: 100%;
   text-align: left;
   overflow: hidden;
+  flex: 1;
 }
 .my-chats .filter .toogle {
   cursor: pointer;
@@ -47,6 +74,7 @@
   border-radius: 5px;
   border-left: 5px solid #0d99eb;
   background-color: rgba(13, 153, 235, 0.3);
+  word-wrap: break-word;
 }
 .my-chats .filter .replied-message em {
   display: block;
@@ -61,6 +89,7 @@
   text-align: right;
 }
 .my-chats .message {
+  word-wrap: break-word;
   color: rgba(0, 0, 0, 0.8);
 }
 .my-chats .time {
@@ -121,6 +150,15 @@
 .my-chats .file-size {
   font-style: normal;
   font-size: 15px;
+}
+
+.icon {
+  transform: scale(0.8);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {

@@ -13,7 +13,7 @@ namespace GOChatAPI.Models
         public string Type { get; set; }
         public Parent Parent { get; set; }
         public Author Author { get; set; }
-        public ChatFile ChatFile { get; set; }
+        public List<ChatFile> ChatFile { get; set; }
         public string ChatroomID { get; set; }
     }
 
@@ -28,7 +28,7 @@ namespace GOChatAPI.Models
     {
         public string FileName { get; set; }
         public string Path { get; set; }
-        public string Size { get; set; }
+        public float Size { get; set; }
     }
 
     public class Author

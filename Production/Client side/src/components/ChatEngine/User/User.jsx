@@ -405,7 +405,7 @@ const EditUser = ({ user }) => {
           { ..._config }
         )
         .then((res) => {
-          console.log("Form data", res.data);
+          console.log("Form data", res);
         })
         .catch();
     }

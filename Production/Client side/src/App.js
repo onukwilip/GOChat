@@ -158,7 +158,7 @@ function App() {
         <>
           <div>
             <Routes>
-              <Route path="/" element={<App />}></Route>
+              <Route path="/" element={<Login />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/chat/*" element={<ChatEngine />}></Route>
               <Route path="/register" element={<Register />}></Route>

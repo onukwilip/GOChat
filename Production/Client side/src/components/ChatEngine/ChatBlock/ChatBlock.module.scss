@@ -78,6 +78,7 @@
 
     .platform {
       height: 70%;
+      width: 100%;
       overflow-y: auto;
       padding: $padding;
       color: rgba(0, 0, 0, 0.8);
@@ -87,6 +88,7 @@
       padding: $padding + 10px;
       background-color: white;
       width: 100%;
+
       .form-parent {
         @include flex(center, center, 1rem);
         flex-direction: row;
@@ -147,6 +149,42 @@
     p {
       font-size: 18px;
       text-align: center;
+    }
+  }
+  .files-container {
+    @include flex(center, flex-start, 1rem);
+    padding: 0 $padding;
+    & > div {
+      padding: $padding - 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+      line-height: 2rem;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  .parent-chat {
+    width: 100%;
+    .replied-message {
+      padding: $padding;
+      border-radius: 5px;
+      border-left: 5px solid rgba(gray, 1);
+      background-color: rgba(lightgray, 1);
+      @include flex(center, space-between, 0);
+      & > div {
+        word-wrap: break-word;
+      }
+      em {
+        display: block;
+        font-style: normal;
+      }
+    }
+    .parent-author {
+      font-weight: bold;
+    }
+    .remove-parent {
+      cursor: pointer;
+      padding: 0 10px;
     }
   }
 }
